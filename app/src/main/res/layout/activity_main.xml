@@ -24,6 +24,7 @@
         android:hint="description"
         />
     <EditText
+        android:visibility="gone"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -33,6 +34,7 @@
         android:hint="lat"
         />
     <EditText
+        android:visibility="gone"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -46,19 +48,19 @@
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/lon"
-        android:layout_below="@+id/lon"
         android:onClick="addNewsButton"
-        android:text="add" />
+        android:text="add"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/inputLocation"
+        android:layout_alignStart="@+id/inputLocation" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/delete"
         android:text="delete"
-        android:layout_below="@+id/lon"
-        android:layout_alignEnd="@+id/lon"
         android:onClick="deleteNewsButton"
-        />
+        android:layout_above="@+id/dbcontain"
+        android:layout_alignEnd="@+id/inputLocation" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,9 +84,11 @@
         android:id="@+id/inputLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/btn_map"
-        android:layout_below="@+id/lon"
         android:onClick="locationNews"
-        android:text="Location" />
+        android:text="Input Location"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/description"
+        android:layout_alignStart="@+id/description"
+        android:layout_alignEnd="@+id/description" />
 
 </RelativeLayout>
