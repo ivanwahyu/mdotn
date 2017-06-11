@@ -3,7 +3,6 @@ package com.example.windows10.dbproject;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -15,7 +14,7 @@ public class DbHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION =1;
     private static final String DATABASE_NAME = "news.db";
-    public static final String TABLE_NAME = "news";
+    public static final String TABLE_CRIME = "crime";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_DESCRIPTION = "description";
@@ -28,7 +27,7 @@ public class DbHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + TABLE_NAME + "(" +
+        String query = "CREATE TABLE " + TABLE_CRIME + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_TITLE + " TEXT, " +
                 COLUMN_DESCRIPTION + " TEXT, " +
@@ -40,33 +39,33 @@ public class DbHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CRIME);
         onCreate(db);
     }
 
-    //Add new News
-    public void addNews(News news){
+    //Add new Crime
+    public void addCrime(Crime crime){
         ContentValues values = new ContentValues();
-        values.put(COLUMN_TITLE,news.get_title());
-        values.put(COLUMN_DESCRIPTION,news.get_description());
-        values.put(COLUMN_LAT,news.get_lat());
-        values.put(COLUMN_LON,news.get_lon());
+        values.put(COLUMN_TITLE, crime.get_title());
+        values.put(COLUMN_DESCRIPTION, crime.get_description());
+        values.put(COLUMN_LAT, crime.get_lat());
+        values.put(COLUMN_LON, crime.get_lon());
         SQLiteDatabase db = getWritableDatabase();
-        db.insert(TABLE_NAME,null,values);
+        db.insert(TABLE_CRIME,null,values);
         db.close();
     }
 
-    //Delete a News
-    public void deleteNews(String title){
+    //Delete a Crime
+    public void deleteCrime(String title){
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_TITLE + "=\"" + title + "\";");
+        db.execSQL("DELETE FROM " + TABLE_CRIME + " WHERE " + COLUMN_TITLE + "=\"" + title + "\";");
     }
 
     //Print out the database String
     public String databaseToString(){
         String dbString ="";
         SQLiteDatabase db = getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE 1";
+        String query = "SELECT * FROM " + TABLE_CRIME + " WHERE 1";
 
         //Cursor point to location in your results
         Cursor recordSet = db.rawQuery(query,null);

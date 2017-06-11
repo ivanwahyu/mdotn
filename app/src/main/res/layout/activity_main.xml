@@ -48,7 +48,7 @@
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="addNewsButton"
+        android:onClick="addCrimeButton"
         android:text="add"
         android:layout_marginTop="22dp"
         android:layout_below="@+id/inputLocation"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/delete"
         android:text="delete"
-        android:onClick="deleteNewsButton"
+        android:onClick="deleteCrimeButton"
         android:layout_above="@+id/dbcontain"
         android:layout_alignEnd="@+id/inputLocation" />
     <TextView
@@ -74,21 +74,31 @@
         android:id="@+id/btn_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="20dp"
         android:onClick="toMap"
-        android:text="Map" />
+        android:text="Map"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/add" />
 
     <Button
         android:id="@+id/inputLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="locationNews"
+        android:onClick="locationCrime"
         android:text="Input Location"
         android:layout_marginTop="12dp"
         android:layout_below="@+id/description"
         android:layout_alignStart="@+id/description"
         android:layout_alignEnd="@+id/description" />
+
+    <Button
+        android:id="@+id/btn_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn_map"
+        android:layout_alignBottom="@+id/btn_map"
+        android:layout_alignStart="@+id/delete"
+        android:onClick="toRecycler"
+        android:text="Recycler" />
 
 </RelativeLayout>

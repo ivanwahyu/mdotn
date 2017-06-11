@@ -39,29 +39,35 @@ public class MainActivity extends AppCompatActivity {
         loninput.setText("");
     }
 
-    //Button add News
-    public void addNewsButton(View view){
-        News news = new News(titleinput.getText().toString(),descriptioninput.getText().toString(),latinput.getText().toString(),loninput.getText().toString());
-        dbHandler.addNews(news);
+    //Button add Crime
+    public void addCrimeButton(View view){
+        Crime crime = new Crime(titleinput.getText().toString(),descriptioninput.getText().toString(),latinput.getText().toString(),loninput.getText().toString());
+        dbHandler.addCrime(crime);
         Log.d("0","berhasil masuk database");
         printDatabase();
     }
 
-    //Button delete News
-    public void deleteNewsButton(View view){
+    //Button delete Crime
+    public void deleteCrimeButton(View view){
         String deletetitle = titleinput.getText().toString();
-        dbHandler.deleteNews(deletetitle);
+        dbHandler.deleteCrime(deletetitle);
         printDatabase();
     }
 
-    //To Map Activity use startActivityForResult
+    //To Map Activity
     public void toMap(View view){
         Intent i = new Intent(this,MapsActivity.class);
         startActivity(i);
     }
 
+    //To Recycler Activity
+    public void toRecycler(View view){
+        Intent i = new Intent(this,RecyclerActivity.class);
+        startActivity(i);
+    }
+
     //To Location Activity
-    public void locationNews(View view){
+    public void locationCrime(View view){
         Intent i = new Intent(this,InputLocation.class);
         startActivityForResult(i,REQUEST_CODE_LOCATION);
     }

@@ -4,14 +4,14 @@ package com.example.windows10.dbproject;
  * Created by Windows 10 on 07/06/2017.
  */
 
-public class News {
+public class Crime {
     private String _title,_lat,_lon,_description;
     private int _id;
 
-    public News() {
+    public Crime() {
     }
 
-    public News(String title, String description, String lat, String lon) {
+    public Crime(String title, String description, String lat, String lon) {
         this._title = title;
         this._lat = lat;
         this._lon = lon;

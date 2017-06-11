@@ -12,6 +12,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,7 +21,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -92,8 +98,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void dbTOMap(){
         SQLiteDatabase db = dbHandler.getWritableDatabase();
-        String query = "select * from news where 1";
-        String title;
+        String query = "select * from crime where 1";
+        String title,description;
         double lat,lon;
 
         Cursor cur = db.rawQuery(query,null);
@@ -102,13 +108,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         while (!cur.isAfterLast()){
             if (cur.getString(cur.getColumnIndex("title"))!=null){
                 title=cur.getString(cur.getColumnIndex("title"));
+                description = cur.getString(cur.getColumnIndex("description"));
                 lat= Double.parseDouble(cur.getString(cur.getColumnIndex("lat")));
                 lon= Double.parseDouble(cur.getString(cur.getColumnIndex("lon")));
                 LatLng location = new LatLng(lat,lon);
-                mMap.addMarker(new MarkerOptions().position(location).title(title));
+                mMap.addMarker(new MarkerOptions().position(location).title(title).snippet(description));
+
+//                //Make Infowindow
+//                mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+//                    @Override
+//                    public View getInfoWindow(Marker marker) {
+//                        return null;
+//                    }
+//
+//                    @Override
+//                    public View getInfoContents(Marker marker) {
+//                        View v = getLayoutInflater().inflate(R.layout.infowindow,null);
+//                        TextView info_title = (TextView) v.findViewById(R.id.info_title);
+//                        TextView info_description = (TextView) v.findViewById(R.id.info_description);
+//                        info_title.setText(marker.getTitle());
+//                        info_description.setText(marker.getSnippet());
+//                        return v;
+//                    }
+//                });
+
+
             }
             cur.moveToNext();
 
         }
+
+
     }
 }
