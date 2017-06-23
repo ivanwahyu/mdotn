@@ -50,9 +50,9 @@
         android:layout_height="wrap_content"
         android:onClick="addCrimeButton"
         android:text="add"
-        android:layout_marginTop="22dp"
         android:layout_below="@+id/inputLocation"
-        android:layout_alignStart="@+id/inputLocation" />
+        android:layout_alignStart="@+id/inputLocation"
+        android:layout_marginTop="73dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,9 +85,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="locationCrime"
-        android:text="Input Location"
+        android:text="Crime Location"
         android:layout_marginTop="12dp"
         android:layout_below="@+id/description"
+        android:layout_alignStart="@+id/description"
+        android:layout_alignEnd="@+id/description" />
+
+    <Button
+        android:id="@+id/inputTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="TimeCrime"
+        android:text="Input Time"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/inputLocation"
         android:layout_alignStart="@+id/description"
         android:layout_alignEnd="@+id/description" />
 

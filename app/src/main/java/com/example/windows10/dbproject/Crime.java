@@ -5,16 +5,18 @@ package com.example.windows10.dbproject;
  */
 
 public class Crime {
-    private String _title,_lat,_lon,_description;
+    private String _title,_lat,_lon,_description,_time;
     private int _id;
+
 
     public Crime() {
     }
 
-    public Crime(String title, String description, String lat, String lon) {
+    public Crime(String title, String description, String lat, String lon, String time) {
         this._title = title;
         this._lat = lat;
         this._lon = lon;
+        this._time = time;
         this._description = description;
     }
 
@@ -56,5 +58,13 @@ public class Crime {
 
     public void set_id(int _id) {
         this._id = _id;
+    }
+
+    public String get_time() {
+        return _time;
+    }
+
+    public void set_time(String _time) {
+        this._time = _time;
     }
 }

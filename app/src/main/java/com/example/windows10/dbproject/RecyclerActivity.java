@@ -60,7 +60,7 @@ public class RecyclerActivity extends AppCompatActivity {
     private void prepareCrimes() {
         SQLiteDatabase db = dbHandler.getWritableDatabase();
         String query = "select * from crime where 1";
-        String title,description;
+        String title,description,time;
         double lat,lon;
         Crime crm;
 
@@ -73,8 +73,9 @@ public class RecyclerActivity extends AppCompatActivity {
                 description = cur.getString(cur.getColumnIndex("description"));
                 lat = Double.parseDouble(cur.getString(cur.getColumnIndex("lat")));
                 lon = Double.parseDouble(cur.getString(cur.getColumnIndex("lon")));
+                time = cur.getString(cur.getColumnIndex("time"));
 
-                crm = new Crime(title,description,String.valueOf(lat),String.valueOf(lon));
+                crm = new Crime(title,description,String.valueOf(lat),String.valueOf(lon),String.valueOf(time));
                 crimeList.add(crm);
             }
             cur.moveToNext();

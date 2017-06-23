@@ -126,16 +126,10 @@ public class InputLocation extends FragmentActivity implements OnMapReadyCallbac
 
     @Override
     public void onMarkerDragStart(Marker marker) {
-
-        Toast.makeText(getApplicationContext(),"Marker["+marker.getId()+"] from : "+marker.getPosition(),Toast.LENGTH_SHORT).show();
-
     }
 
     @Override
     public void onMarkerDrag(Marker marker) {
-
-       Toast.makeText(getApplicationContext(),"Marker["+marker.getId()+"] dragged",Toast.LENGTH_SHORT).show();
-
     }
 
     @Override

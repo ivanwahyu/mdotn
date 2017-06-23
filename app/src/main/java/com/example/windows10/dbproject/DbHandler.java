@@ -20,6 +20,7 @@ public class DbHandler extends SQLiteOpenHelper {
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String COLUMN_LAT = "lat";
     public static final String COLUMN_LON = "lon";
+    public static final String COLUMN_TIME = "time";
 
     public DbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -32,7 +33,8 @@ public class DbHandler extends SQLiteOpenHelper {
                 COLUMN_TITLE + " TEXT, " +
                 COLUMN_DESCRIPTION + " TEXT, " +
                 COLUMN_LAT + " TEXT, " +
-                COLUMN_LON + " TEXT " +
+                COLUMN_LON + " TEXT, " +
+                COLUMN_TIME + " TEXT " +
                 ");";
         db.execSQL(query);
     }
@@ -50,6 +52,7 @@ public class DbHandler extends SQLiteOpenHelper {
         values.put(COLUMN_DESCRIPTION, crime.get_description());
         values.put(COLUMN_LAT, crime.get_lat());
         values.put(COLUMN_LON, crime.get_lon());
+        values.put(COLUMN_TIME, crime.get_time());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_CRIME,null,values);
         db.close();
@@ -72,9 +75,10 @@ public class DbHandler extends SQLiteOpenHelper {
         recordSet.moveToFirst();
 
         while (!recordSet.isAfterLast()){
-            if (recordSet.getString(recordSet.getColumnIndex("title"))!=null){
-                dbString +=recordSet.getString(recordSet.getColumnIndex("title"))+" "+
+            if (recordSet.getString(recordSet.getColumnIndex(COLUMN_TITLE))!=null){
+                dbString +=recordSet.getString(recordSet.getColumnIndex(COLUMN_TITLE))+" "+
                         recordSet.getString(recordSet.getColumnIndex(COLUMN_DESCRIPTION))+" "+
+                        recordSet.getString(recordSet.getColumnIndex(COLUMN_TIME))+" "+
                         recordSet.getString(recordSet.getColumnIndex(COLUMN_LAT))+" "+
                         recordSet.getString(recordSet.getColumnIndex(COLUMN_LON));
                 dbString += "\n";

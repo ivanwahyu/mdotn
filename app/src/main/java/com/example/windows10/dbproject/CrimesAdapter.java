@@ -47,7 +47,7 @@ public class CrimesAdapter extends RecyclerView.Adapter<CrimesAdapter.MyViewHold
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Crime crime = crimeList.get(position);
         holder.title.setText(crime.get_title());
-        holder.time.setText(crime.get_lat());
+        holder.time.setText(crime.get_time());
         holder.description.setText(crime.get_description());
         holder.image.setImageResource(R.mipmap.ic_launcher);
     }
