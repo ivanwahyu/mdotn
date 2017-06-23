@@ -1,6 +1,10 @@
 package com.example.windows10.dbproject;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.support.annotation.RequiresPermission;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 
 /**
@@ -49,7 +54,9 @@ public class CrimesAdapter extends RecyclerView.Adapter<CrimesAdapter.MyViewHold
         holder.title.setText(crime.get_title());
         holder.time.setText(crime.get_time());
         holder.description.setText(crime.get_description());
-        holder.image.setImageResource(R.mipmap.ic_launcher);
+        byte[] outImage=crime.get_image();
+        Bitmap theImage = BitmapFactory.decodeByteArray(outImage, 0, outImage.length);
+        holder.image.setImageBitmap(theImage);
     }
 
     @Override

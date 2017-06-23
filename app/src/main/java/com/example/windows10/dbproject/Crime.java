@@ -7,17 +7,19 @@ package com.example.windows10.dbproject;
 public class Crime {
     private String _title,_lat,_lon,_description,_time;
     private int _id;
+    private byte[] _image;
 
 
     public Crime() {
     }
 
-    public Crime(String title, String description, String lat, String lon, String time) {
+    public Crime(String title, String description, String lat, String lon, String time, byte[] image) {
         this._title = title;
         this._lat = lat;
         this._lon = lon;
         this._time = time;
         this._description = description;
+        this._image = image;
     }
 
     public String get_title() {
@@ -66,5 +68,13 @@ public class Crime {
 
     public void set_time(String _time) {
         this._time = _time;
+    }
+
+    public byte[] get_image() {
+        return _image;
+    }
+
+    public void set_image(byte[] _image) {
+        this._image = _image;
     }
 }

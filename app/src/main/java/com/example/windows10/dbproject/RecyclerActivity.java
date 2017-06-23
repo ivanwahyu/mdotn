@@ -52,7 +52,6 @@ public class RecyclerActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
         prepareCrimes();
     }
 
@@ -61,6 +60,7 @@ public class RecyclerActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHandler.getWritableDatabase();
         String query = "select * from crime where 1";
         String title,description,time;
+        byte[] image;
         double lat,lon;
         Crime crm;
 
@@ -74,8 +74,9 @@ public class RecyclerActivity extends AppCompatActivity {
                 lat = Double.parseDouble(cur.getString(cur.getColumnIndex("lat")));
                 lon = Double.parseDouble(cur.getString(cur.getColumnIndex("lon")));
                 time = cur.getString(cur.getColumnIndex("time"));
+                image = cur.getBlob(cur.getColumnIndex("image"));
 
-                crm = new Crime(title,description,String.valueOf(lat),String.valueOf(lon),String.valueOf(time));
+                crm = new Crime(title,description,String.valueOf(lat),String.valueOf(lon),String.valueOf(time),image);
                 crimeList.add(crm);
             }
             cur.moveToNext();

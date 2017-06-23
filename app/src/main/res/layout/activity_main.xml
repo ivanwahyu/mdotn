@@ -50,31 +50,30 @@
         android:layout_height="wrap_content"
         android:onClick="addCrimeButton"
         android:text="add"
-        android:layout_below="@+id/inputLocation"
-        android:layout_alignStart="@+id/inputLocation"
-        android:layout_marginTop="73dp" />
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/inputImage"
+        android:layout_alignStart="@+id/inputImage" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/delete"
         android:text="delete"
         android:onClick="deleteCrimeButton"
-        android:layout_above="@+id/dbcontain"
-        android:layout_alignEnd="@+id/inputLocation" />
+        android:layout_alignBaseline="@+id/add"
+        android:layout_alignBottom="@+id/add"
+        android:layout_alignEnd="@+id/inputImage" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dbcontain"
         android:text="isi"
-        android:layout_below="@+id/add"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        android:layout_below="@+id/delete"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btn_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:onClick="toMap"
         android:text="Map"
         android:layout_alignParentBottom="true"
@@ -103,13 +102,31 @@
         android:layout_alignEnd="@+id/description" />
 
     <Button
+        android:id="@+id/inputImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="ImageCrime"
+        android:text="Input Image"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/inputTime"
+        android:layout_alignStart="@+id/description"
+        android:layout_alignEnd="@+id/description" />
+
+    <Button
         android:id="@+id/btn_recycler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btn_map"
-        android:layout_alignBottom="@+id/btn_map"
-        android:layout_alignStart="@+id/delete"
         android:onClick="toRecycler"
-        android:text="Recycler" />
+        android:text="Recycler"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/delete" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/add"
+        android:layout_below="@+id/dbcontain"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
 </RelativeLayout>
