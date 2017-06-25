@@ -47,8 +47,11 @@ public class CrimesAdapter extends RecyclerView.Adapter<CrimesAdapter.MyViewHold
         public void onClick(View v) {
             int position = getAdapterPosition();
             Crime crime = this.crimeList.get(position);
-            Intent intent = new Intent(this.context,Main2Activity.class);
-            intent.putExtra("crime details",crime.get_title());
+            Intent intent = new Intent(this.context,ScrollingActivity.class);
+            intent.putExtra("crime title",crime.get_title());
+            intent.putExtra("crime time",crime.get_time());
+            intent.putExtra("crime description",crime.get_description());
+            intent.putExtra("crime image",crime.get_image());
             this.context.startActivity(intent);
 
         }
