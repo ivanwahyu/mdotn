@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,19 +22,35 @@ import java.util.List;
 
 public class CrimesAdapter extends RecyclerView.Adapter<CrimesAdapter.MyViewHolder> {
 
-    private Context context;
     private List<Crime> crimeList;
+    private Crime crime;
+    private Context context;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView title,time,description;
         public ImageView image;
+        List<Crime> crimeList = new ArrayList<Crime>();
+        Context context;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView, Context context, List<Crime> crimes) {
             super(itemView);
+            this.context = context;
+            this.crimeList = crimes;
+            itemView.setOnClickListener(this);
             title = (TextView) itemView.findViewById(R.id.cv_title);
             time = (TextView) itemView.findViewById(R.id.cv_time);
             description = (TextView) itemView.findViewById(R.id.cv_description);
             image  = (ImageView) itemView.findViewById(R.id.cv_image);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            Crime crime = this.crimeList.get(position);
+            Intent intent = new Intent(this.context,Main2Activity.class);
+            intent.putExtra("crime details",crime.get_title());
+            this.context.startActivity(intent);
+
         }
     }
 
@@ -45,7 +62,7 @@ public class CrimesAdapter extends RecyclerView.Adapter<CrimesAdapter.MyViewHold
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.crime_card,parent,false);
-        return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView,context,crimeList);
     }
 
     @Override
