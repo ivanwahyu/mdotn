@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/map"
+        android:src="@drawable/list"
         android:layout_marginStart="26dp"
         android:layout_alignTop="@+id/imageView3"
         android:layout_alignParentStart="true"
@@ -26,7 +26,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/map"
+        android:src="@drawable/about"
         android:id="@+id/imageView4"
         android:layout_alignTop="@+id/imageView5"
         android:layout_alignStart="@+id/imageView6" />
@@ -38,6 +38,6 @@
         android:layout_alignStart="@+id/imageView3"
         android:layout_below="@+id/imageView3"
         android:layout_marginTop="14dp"
-        android:src="@drawable/map" />
+        android:src="@drawable/add" />
 
 </RelativeLayout>
