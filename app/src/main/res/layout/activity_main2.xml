@@ -4,40 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context="com.example.windows10.dbproject.Main2Activity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/list"
-        android:layout_marginStart="26dp"
-        android:layout_alignTop="@+id/imageView3"
-        android:layout_alignParentStart="true"
-        android:id="@+id/imageView6" />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/map"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="26dp"
-        android:layout_marginTop="32dp"
-        android:id="@+id/imageView3" />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/about"
-        android:id="@+id/imageView4"
-        android:layout_alignTop="@+id/imageView5"
-        android:layout_alignStart="@+id/imageView6" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="2"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <ImageView
+                android:onClick="listicon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/list"
+                android:id="@+id/listicon"
+                android:layout_weight="1"/>
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView3"
-        android:layout_below="@+id/imageView3"
-        android:layout_marginTop="14dp"
-        android:src="@drawable/add" />
+            <ImageView
+                android:onClick="mapicon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/map"
+                android:id="@+id/mapicon"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <ImageView
+                android:onClick="abouticon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/about"
+                android:id="@+id/abouticon"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/addicon"
+                android:onClick="addicon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/add"
+                android:layout_weight="1"/>
 
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>

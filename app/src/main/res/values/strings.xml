@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DbProject</string>
+    <string name="app_name">Map.News</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_input_location">Map</string>
     <string name="title_activity_recycler">RecyclerActivity</string>
